@@ -1,0 +1,8 @@
+====================================
+    TODOs, FIXMEs and Wish List
+====================================
+
+1) Zoom, pan, etc.
+2) Add a listener on the textfield of the Browsers to update if the user type / paste a new path (currently only the Browse button updates the path)
+3) Make the tiles click-able to see what the value is for that tile (for now using tooltip, since it is easiest)
+4) Add user friendly validation and tool-tips.

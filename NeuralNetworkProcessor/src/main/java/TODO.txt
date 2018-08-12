@@ -1,0 +1,6 @@
+====================================
+    TODOs, FIXMEs and Wish List
+====================================
+
+1) Add a category of input data, called "Masking", that can be used to help force some obvious limits, like ocean vs land, or different continents.
+2) Add waiting cursors to all the button presses in all the apps, also maybe popups with details when done.

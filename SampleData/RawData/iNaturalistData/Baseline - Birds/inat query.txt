@@ -1,0 +1,3 @@
+Query 
+quality_grade=research&identifications=any&iconic_taxa[]=Aves&place_id=113055&verifiable=true
+Columns id, out_of_range, quality_grade, captive_cultivated, latitude, longitude, positional_accuracy, coordinates_obscured, scientific_name, iconic_taxon_name

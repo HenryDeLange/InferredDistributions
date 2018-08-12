@@ -1,0 +1,8 @@
+====================================
+    TODOs, FIXMEs and Wish List
+====================================
+
+1) Make a UI to download the raw files, or is the iNat one fine for now?
+2) Add progress bar.
+3) Add a listener on the textfield of the Browsers to update if the user type / paste a new path (currently only the Browse button updates the path)
+4) Add user friendly validation and tool-tips.
