@@ -1,4 +1,4 @@
-package mywild.inferreddistributions;
+package mywild.launcher;
 
 import java.awt.EventQueue;
 import java.util.logging.Level;
@@ -6,6 +6,10 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import mywild.inferreddistributions.DataGeneratorAppForINat;
+import mywild.inferreddistributions.DataGeneratorAppForRaster;
+import mywild.inferreddistributions.DataViewerApp;
+import mywild.inferreddistributions.NeuralNetworkProcessorApp;
 
 public class DataGeneratorAppLauncher extends JFrame {
 
@@ -39,14 +43,34 @@ public class DataGeneratorAppLauncher extends JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnGenerateINat = new javax.swing.JButton();
+        btnViewer = new javax.swing.JButton();
         btnGenerateRaster = new javax.swing.JButton();
+        btnGenerateINat = new javax.swing.JButton();
+        btnNeuralNetwork = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Data Generator");
+        setTitle("Inferred Distributions Launcher");
 
-        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+15));
-        jLabel1.setText("Data Generator");
+        jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+20));
+        jLabel1.setText("Inferred Distributions Launcher");
+
+        btnViewer.setFont(btnViewer.getFont().deriveFont(btnViewer.getFont().getStyle() | java.awt.Font.BOLD, btnViewer.getFont().getSize()+13));
+        btnViewer.setText("Data Viewer");
+        btnViewer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewerActionPerformed(evt);
+            }
+        });
+
+        btnGenerateRaster.setFont(btnGenerateRaster.getFont().deriveFont(btnGenerateRaster.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateRaster.getFont().getSize()+13));
+        btnGenerateRaster.setText("Generate Raster Datasets");
+        btnGenerateRaster.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateRaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateRasterActionPerformed(evt);
+            }
+        });
 
         btnGenerateINat.setFont(btnGenerateINat.getFont().deriveFont(btnGenerateINat.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateINat.getFont().getSize()+13));
         btnGenerateINat.setText("Generate iNaturalist Datasets");
@@ -57,12 +81,12 @@ public class DataGeneratorAppLauncher extends JFrame {
             }
         });
 
-        btnGenerateRaster.setFont(btnGenerateRaster.getFont().deriveFont(btnGenerateRaster.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateRaster.getFont().getSize()+13));
-        btnGenerateRaster.setText("Generate Raster Datasets");
-        btnGenerateRaster.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGenerateRaster.addActionListener(new java.awt.event.ActionListener() {
+        btnNeuralNetwork.setFont(btnNeuralNetwork.getFont().deriveFont(btnNeuralNetwork.getFont().getStyle() | java.awt.Font.BOLD, btnNeuralNetwork.getFont().getSize()+13));
+        btnNeuralNetwork.setText("Neural Network Processor");
+        btnNeuralNetwork.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNeuralNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerateRasterActionPerformed(evt);
+                btnNeuralNetworkActionPerformed(evt);
             }
         });
 
@@ -77,8 +101,10 @@ public class DataGeneratorAppLauncher extends JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnGenerateRaster, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+                    .addComponent(btnNeuralNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
                     .addComponent(btnGenerateINat, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
-                    .addComponent(btnGenerateRaster, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
+                    .addComponent(btnViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -86,11 +112,15 @@ public class DataGeneratorAppLauncher extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50)
-                .addComponent(btnGenerateINat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
+                .addComponent(btnViewer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnGenerateRaster, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(30, 30, 30)
+                .addComponent(btnGenerateINat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnNeuralNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
 
         pack();
@@ -108,9 +138,23 @@ public class DataGeneratorAppLauncher extends JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_btnGenerateRasterActionPerformed
 
+    private void btnViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewerActionPerformed
+        DataViewerApp frame = new DataViewerApp();
+        frame.setLocationRelativeTo(this);
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnViewerActionPerformed
+
+    private void btnNeuralNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNeuralNetworkActionPerformed
+        NeuralNetworkProcessorApp frame = new NeuralNetworkProcessorApp();
+        frame.setLocationRelativeTo(this);
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnNeuralNetworkActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerateINat;
     private javax.swing.JButton btnGenerateRaster;
+    private javax.swing.JButton btnNeuralNetwork;
+    private javax.swing.JButton btnViewer;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

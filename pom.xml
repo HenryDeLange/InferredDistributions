@@ -15,6 +15,7 @@
         <module>DataGenerator</module>
         <module>DataViewer</module>
         <module>NeuralNetworkProcessor</module>
+        <module>Launcher</module>
     </modules>
     
 </project>

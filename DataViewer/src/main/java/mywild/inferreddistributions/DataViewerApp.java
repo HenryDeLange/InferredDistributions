@@ -61,10 +61,10 @@ public class DataViewerApp extends JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtDataFolderPath = new javax.swing.JTextField();
         btnDataFolderBrowse = new javax.swing.JButton();
-        pnlView = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         btnPreviewData = new javax.swing.JButton();
         btnSavePreview = new javax.swing.JButton();
+        pnlView = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Data Viewer");
@@ -100,7 +100,7 @@ public class DataViewerApp extends JFrame {
                         .addComponent(jLabel7)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtDataFolderPath, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+                        .addComponent(txtDataFolderPath, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
                         .addGap(5, 5, 5)
                         .addComponent(btnDataFolderBrowse, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5))
@@ -116,11 +116,6 @@ public class DataViewerApp extends JFrame {
                     .addComponent(btnDataFolderBrowse))
                 .addGap(5, 5, 5))
         );
-
-        pnlView.setBackground(new java.awt.Color(0, 0, 0));
-        pnlView.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEtchedBorder()));
-        pnlView.setMinimumSize(new java.awt.Dimension(500, 500));
-        pnlView.setLayout(new java.awt.GridLayout(4, 4, 1, 1));
 
         jLabel8.setFont(jLabel8.getFont().deriveFont(jLabel8.getFont().getStyle() | java.awt.Font.BOLD, jLabel8.getFont().getSize()+6));
         jLabel8.setText("Dataset Visualization");
@@ -143,6 +138,12 @@ public class DataViewerApp extends JFrame {
             }
         });
 
+        pnlView.setBackground(new java.awt.Color(0, 0, 0));
+        pnlView.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlView.setMinimumSize(new java.awt.Dimension(500, 600));
+        pnlView.setPreferredSize(new java.awt.Dimension(80, 80));
+        pnlView.setLayout(new java.awt.GridLayout(1, 1, 1, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,15 +163,15 @@ public class DataViewerApp extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(btnPreviewData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSavePreview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -183,7 +184,7 @@ public class DataViewerApp extends JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel8)
                 .addGap(5, 5, 5)
-                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(btnPreviewData, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -272,7 +273,7 @@ public class DataViewerApp extends JFrame {
 // TODO: show validation exception
         }
     }//GEN-LAST:event_btnPreviewDataActionPerformed
-
+    
     private void btnSavePreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePreviewActionPerformed
         Path idiPath = Paths.get(dataFile).toAbsolutePath();
         if (Files.exists(idiPath) && dataFile.toLowerCase().endsWith(".idi")) {

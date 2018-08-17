@@ -1,5 +1,7 @@
 package mywild.inferreddistributions;
 
+import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -20,6 +22,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class DataGeneratorAppForRaster extends JFrame {
     private String dataFolder = Paths.get(System.getProperty("user.home"), 
@@ -27,6 +32,24 @@ public class DataGeneratorAppForRaster extends JFrame {
 
     public DataGeneratorAppForRaster() {
         initComponents();
+    }
+    
+    public static void main(String args[]) {
+        // Set native Look and Feel
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // Launch the application
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                DataGeneratorAppForRaster app = new DataGeneratorAppForRaster();
+                app.setLocationRelativeTo(null);
+                app.setVisible(true);
+            }
+        });
     }
 
     /**
@@ -63,10 +86,10 @@ public class DataGeneratorAppForRaster extends JFrame {
         btnGenerateLimits = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Data Generator for Raster Data");
+        setTitle("Dataset Generator for Raster Data");
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+15));
-        jLabel1.setText("Data Generator for Raster Data");
+        jLabel1.setText("Dataset Generator for Raster Data");
 
         jLabel6.setFont(jLabel6.getFont().deriveFont(jLabel6.getFont().getStyle() | java.awt.Font.BOLD, jLabel6.getFont().getSize()+2));
         jLabel6.setText("Bottom-Right Longitude:");
@@ -105,26 +128,27 @@ public class DataGeneratorAppForRaster extends JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jLabel4)
-                .addContainerGap(734, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spnLatTL)
-                    .addComponent(spnLonTL))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spnLatBR)
-                    .addComponent(spnLonBR))
-                .addGap(5, 5, 5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(734, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spnLatTL)
+                            .addComponent(spnLonTL))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spnLatBR)
+                            .addComponent(spnLonBR))
+                        .addGap(5, 5, 5))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +234,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         jLabel8.setText("Grid Size");
 
         spnGridSize.setFont(spnGridSize.getFont().deriveFont(spnGridSize.getFont().getSize()+1f));
-        spnGridSize.setModel(new javax.swing.SpinnerNumberModel(0.5d, 0.01d, 1.0d, 0.1d));
+        spnGridSize.setModel(new javax.swing.SpinnerNumberModel(0.25d, 0.01d, 1.0d, 0.1d));
         spnGridSize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel10.setFont(jLabel10.getFont().deriveFont(jLabel10.getFont().getStyle() | java.awt.Font.BOLD, jLabel10.getFont().getSize()+2));
@@ -223,12 +247,14 @@ public class DataGeneratorAppForRaster extends JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(10, 10, 10)
-                        .addComponent(spnGridSize, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(spnGridSize, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                        .addGap(492, 492, 492))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(5, 5, 5))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +276,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         chkReplaceFiles.setText("Replace exisitng files");
         chkReplaceFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getSize()+1f));
+        jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getStyle() | java.awt.Font.BOLD, jLabel13.getFont().getSize()+1));
         jLabel13.setText("Settings:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -265,7 +291,7 @@ public class DataGeneratorAppForRaster extends JFrame {
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addComponent(chkReplaceFiles)))
-                .addGap(0, 651, Short.MAX_VALUE))
+                .addGap(0, 644, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,6 +383,8 @@ public class DataGeneratorAppForRaster extends JFrame {
     }//GEN-LAST:event_btnDataFolderBrowseActionPerformed
 
     private void btnGenerateInputDatasetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateInputDatasetsActionPerformed
+        getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        getGlassPane().setVisible(true);
         try {
             Files.walkFileTree(Paths.get(dataFolder), new SimpleFileVisitor<Path>() {
                 @Override
@@ -367,13 +395,21 @@ public class DataGeneratorAppForRaster extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
+            JOptionPane.showMessageDialog(this, "The datasets have been generated.", "FINISHED Datasets", 
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         catch (IOException ex) {
             Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The datasets have NOT been generated.", "ERROR Datasets", 
+                    JOptionPane.ERROR_MESSAGE);
         }
+        getGlassPane().setVisible(false);
+        getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnGenerateInputDatasetsActionPerformed
 
     private void btnGenerateLimitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateLimitsActionPerformed
+        getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        getGlassPane().setVisible(true);
         try {
             Files.walkFileTree(Paths.get(dataFolder), new SimpleFileVisitor<Path>() {
                 @Override
@@ -384,13 +420,19 @@ public class DataGeneratorAppForRaster extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
+            JOptionPane.showMessageDialog(this, "The limits files have been generated.", "FINISHED Limits Files", 
+                    JOptionPane.INFORMATION_MESSAGE);
         }
         catch (IOException ex) {
             Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The limits files have NOT been generated.", "ERROR Limits Files", 
+                    JOptionPane.ERROR_MESSAGE);
         }
+        getGlassPane().setVisible(false);
+        getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnGenerateLimitsActionPerformed
 
-    private void processLimitsCSV(Path file) {
+    private void processLimitsCSV(Path file) throws IOException {
         Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "Processing File: {0}", file.toString());
         double minValue = Double.MAX_VALUE;
         double maxValue = Double.MIN_VALUE;
@@ -419,17 +461,18 @@ public class DataGeneratorAppForRaster extends JFrame {
             // Closing just to be paranoid (should be handled by the try-with-resources statement already)
             reader.close();
         }
-        catch (IOException ex) {
-            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
-        }
         // Write the input dataset file
         String filename = file.getFileName().toString();
         Path limitFile = file.getParent().resolve(filename.substring(0, filename.length() - 4) + ".lmt");
         writeLimits(minValue, maxValue, mapValueCount, limitFile);
     }
     
-    private void writeLimits(double min, double max, Map<Double, MapCounter> mapValueCount, Path file) {
+    private void writeLimits(double min, double max, Map<Double, MapCounter> mapValueCount, Path file) throws IOException {
         Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "Writing File: {0}", file.toString());
+        if (!chkReplaceFiles.isSelected() && Files.exists(file)) {
+            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+            return;
+        }
         // Write the file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file.toFile()))) {
             // Write Min / Max
@@ -450,18 +493,16 @@ public class DataGeneratorAppForRaster extends JFrame {
             writer.flush();
             writer.close();
         }
-        catch (IOException ex) {
-            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
-    private void processDataCSV(Path file) {
+    private void processDataCSV(Path file) throws IOException {
         Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "Processing File: {0}", file.toString());
         // Get the limits to use
         String filename = file.getFileName().toString();
         Path limitFile = file.getParent().resolve(filename.substring(0, filename.length() - 4) + ".lmt");
         if (!Files.exists(limitFile)) {
-// TODO: Add validation message
+            JOptionPane.showMessageDialog(this, "The limits file has not yet been generated: " + file.toString(), "ERROR Missing Limits", 
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
         double minLimit = Double.MIN_VALUE;
@@ -483,9 +524,6 @@ public class DataGeneratorAppForRaster extends JFrame {
                     break;
                 }
             }
-        }
-        catch (IOException ex) {
-            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Read the map data
         final double GRID_SIZE = (double) spnGridSize.getValue();
@@ -518,9 +556,6 @@ public class DataGeneratorAppForRaster extends JFrame {
             // Closing just to be paranoid (should be handled by the try-with-resources statement already)
             reader.close();
         }
-        catch (IOException ex) {
-            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
-        }
         // Write the input dataset file
         String csvFilename = file.getFileName().toString();
         Path inputDataset = file.getParent().resolve(csvFilename.substring(0, csvFilename.length() - 4) + ".idi");
@@ -531,8 +566,12 @@ public class DataGeneratorAppForRaster extends JFrame {
         return lat + "_" + lon;
     }
     
-    private void writeDataset(Map<String, MapCounter> mapGridCounts, Path file) {
+    private void writeDataset(Map<String, MapCounter> mapGridCounts, Path file) throws IOException {
         Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "Writing File: {0}", file.toString());
+        if (!chkReplaceFiles.isSelected() && Files.exists(file)) {
+            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+            return;
+        }
         final double GRID_SIZE = (double) spnGridSize.getValue();
         // Adjust all the GPS values to make sure they are positive numbers, then it is simpler to do the comparisons
         // Latitude will be processed top to bottom
@@ -552,12 +591,6 @@ public class DataGeneratorAppForRaster extends JFrame {
         double lon = Math.min(
                 convertToGrid((double) spnLonTL.getValue(), GRID_SIZE) + 1000, 
                 convertToGrid((double) spnLonBR.getValue(), GRID_SIZE) + 1000);
-        if (!chkReplaceFiles.isSelected()) {
-            if (Files.exists(file)) {
-// TODO: Show validation message
-                return;
-            }
-        }
         // Get the max count
         double minCount = Double.MAX_VALUE;
         double maxCount = Double.MIN_VALUE;
@@ -581,8 +614,7 @@ public class DataGeneratorAppForRaster extends JFrame {
                     }
                     else {
                         double weight = (counter.count - minCount) / range;
-// TODO: Maybe apply some sort of Log algorith here to make big numbers look bigger and small numbers look smaller
-// FIXME: I think especiall the baseline bird data is not good, the heavily sampled blocks outway the others too much... Need to fix this...
+// TODO: Maybe also apply some sort of Log algorith here? To make big numbers look bigger and small numbers look smaller...
                         writer.write(Double.toString(Math.round(weight * 1000.0) / 1000.0));
                     }
                     // Move to the next column
@@ -597,9 +629,6 @@ public class DataGeneratorAppForRaster extends JFrame {
             // Flushing and closing just to be paranoid (should be handled by the try-with-resources statement already)
             writer.flush();
             writer.close();
-        }
-        catch (IOException ex) {
-            Logger.getLogger(DataGeneratorAppForRaster.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
   <Layout>
@@ -121,7 +121,7 @@
                 <Font bold="true" component="jLabel7" property="font" relativeSize="true" size="6"/>
               </FontInfo>
             </Property>
-            <Property name="text" type="java.lang.String" value="Distributions Folder"/>
+            <Property name="text" type="java.lang.String" value="Distribution Datasets Folder"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDistributionsFolderPath">
@@ -171,13 +171,28 @@
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="chkReplaceFiles" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel12" max="32767" attributes="0"/>
+                              <Component id="txtLayersAndNodes" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkReplaceFiles" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkIncludeAbsence" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="255" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -190,7 +205,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="chkReplaceFiles" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkIncludeAbsence" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLayersAndNodes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -219,17 +242,64 @@
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
               <FontInfo relative="true">
-                <Font component="jLabel13" property="font" relativeSize="true" size="1"/>
+                <Font bold="true" component="jLabel13" property="font" relativeSize="true" size="1"/>
               </FontInfo>
             </Property>
             <Property name="text" type="java.lang.String" value="Settings:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chkIncludeAbsence">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+              <FontInfo relative="true">
+                <Font component="chkIncludeAbsence" property="font" relativeSize="true" size="1"/>
+              </FontInfo>
+            </Property>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Include absence records for the training and testing datasets"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+              <FontInfo relative="true">
+                <Font component="jLabel11" property="font" relativeSize="true" size="1"/>
+              </FontInfo>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nodes per hidden layers:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtLayersAndNodes">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+              <FontInfo relative="true">
+                <Font component="txtLayersAndNodes" property="font" relativeSize="true" size="2"/>
+              </FontInfo>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+              <FontInfo relative="true">
+                <Font component="jLabel12" italic="true" property="font" relativeSize="true" size="0"/>
+              </FontInfo>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Space seperated. Leave empty to determine automatically."/>
           </Properties>
         </Component>
       </SubComponents>
@@ -327,7 +397,7 @@
                 <Font bold="true" component="jLabel19" property="font" relativeSize="true" size="6"/>
               </FontInfo>
             </Property>
-            <Property name="text" type="java.lang.String" value="Training Inputs Folder"/>
+            <Property name="text" type="java.lang.String" value="Raster Datasets Folder"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTrainingInputsFolderPath">

@@ -1,5 +1,6 @@
 package mywild.inferreddistributions;
 
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -71,6 +72,10 @@ public class NeuralNetworkProcessorApp extends JFrame {
         jLabel9 = new javax.swing.JLabel();
         chkReplaceFiles = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
+        chkIncludeAbsence = new javax.swing.JCheckBox();
+        jLabel11 = new javax.swing.JLabel();
+        txtLayersAndNodes = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         btnGenerateDatasets = new javax.swing.JButton();
         btnTrainNeuralNetwork = new javax.swing.JButton();
         btnGenerateDistribution = new javax.swing.JButton();
@@ -86,7 +91,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         jLabel1.setText("Neural Network Processor");
 
         jLabel7.setFont(jLabel7.getFont().deriveFont(jLabel7.getFont().getStyle() | java.awt.Font.BOLD, jLabel7.getFont().getSize()+6));
-        jLabel7.setText("Distributions Folder");
+        jLabel7.setText("Distribution Datasets Folder");
 
         txtDistributionsFolderPath.setFont(txtDistributionsFolderPath.getFont().deriveFont(txtDistributionsFolderPath.getFont().getSize()+2f));
         txtDistributionsFolderPath.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -139,10 +144,25 @@ public class NeuralNetworkProcessorApp extends JFrame {
         chkReplaceFiles.setSelected(true);
         chkReplaceFiles.setText("Replace exisitng files");
         chkReplaceFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        chkReplaceFiles.setEnabled(false);
 
-        jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getSize()+1f));
+        jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getStyle() | java.awt.Font.BOLD, jLabel13.getFont().getSize()+1));
         jLabel13.setText("Settings:");
+
+        chkIncludeAbsence.setFont(chkIncludeAbsence.getFont().deriveFont(chkIncludeAbsence.getFont().getSize()+1f));
+        chkIncludeAbsence.setSelected(true);
+        chkIncludeAbsence.setText("Include absence records for the training and testing datasets");
+        chkIncludeAbsence.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel11.setFont(jLabel11.getFont().deriveFont(jLabel11.getFont().getSize()+1f));
+        jLabel11.setText("Nodes per hidden layers:");
+
+        txtLayersAndNodes.setFont(txtLayersAndNodes.getFont().deriveFont(txtLayersAndNodes.getFont().getSize()+2f));
+        txtLayersAndNodes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel12.setFont(jLabel12.getFont().deriveFont((jLabel12.getFont().getStyle() | java.awt.Font.ITALIC)));
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Space seperated. Leave empty to determine automatically.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -152,11 +172,22 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(chkReplaceFiles))
-                    .addComponent(jLabel9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel11)
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtLayersAndNodes)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkReplaceFiles)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkIncludeAbsence)))
+                        .addGap(0, 255, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +197,14 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkReplaceFiles)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel13)
+                    .addComponent(chkIncludeAbsence))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtLayersAndNodes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(jLabel12)
                 .addGap(5, 5, 5))
         );
 
@@ -198,7 +236,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         });
 
         jLabel19.setFont(jLabel19.getFont().deriveFont(jLabel19.getFont().getStyle() | java.awt.Font.BOLD, jLabel19.getFont().getSize()+6));
-        jLabel19.setText("Training Inputs Folder");
+        jLabel19.setText("Raster Datasets Folder");
 
         txtTrainingInputsFolderPath.setFont(txtTrainingInputsFolderPath.getFont().deriveFont(txtTrainingInputsFolderPath.getFont().getSize()+2f));
         txtTrainingInputsFolderPath.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -299,9 +337,11 @@ public class NeuralNetworkProcessorApp extends JFrame {
     }//GEN-LAST:event_btnDistributionsBrowseActionPerformed
 
     private void btnGenerateDistributionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateDistributionActionPerformed
-        // Get all the input files
-        List<Path> lstTrainingFiles = new ArrayList<>();
+        getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        getGlassPane().setVisible(true);
         try {
+            // Get all the input files
+            List<Path> lstTrainingFiles = new ArrayList<>();
             Files.walkFileTree(Paths.get(trainingInputsFolder), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -311,19 +351,14 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
-        }
-        catch (IOException ex) {
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // Load the values into memory
+            // Load the values into memory
 // TODO: A bit of a cumbersome data structure, but it works... Maybe use Double[][][] instead, but then I need to know the sizes before hand...
-        List<List<List<Double>>> lstAllTrainingData = new ArrayList<>(lstTrainingFiles.size());
-        for (Path file : lstTrainingFiles) {
-            lstAllTrainingData.add(readDatasetFile(file));
-        }
-        // Get the neural networks
-        List<Path> lstNeuralNetworkFiles = new ArrayList<>();
-        try {
+            List<List<List<Double>>> lstAllTrainingData = new ArrayList<>(lstTrainingFiles.size());
+            for (Path file : lstTrainingFiles) {
+                lstAllTrainingData.add(readDatasetFile(file));
+            }
+            // Get the neural networks
+            List<Path> lstNeuralNetworkFiles = new ArrayList<>();
             Files.walkFileTree(Paths.get(distributionsFolder), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -333,55 +368,68 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
+            for (Path file : lstNeuralNetworkFiles) {
+                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Infer Distribution for: {0}", file.toString());
+                // Load the neural network
+                NeuralNetwork neuralNetwork = NeuralNetwork.createFromFile(file.toFile());
+                // Calculate the infered distribution for each grid tile
+                List<List<Double>> lstAllResults = new ArrayList<>();
+                for (int row = 0; row < lstAllTrainingData.get(0).size(); row++) {
+                    List<Double> lstResultRow = new ArrayList<>();
+                    for (int col = 0; col < lstAllTrainingData.get(0).get(0).size(); col++) {
+                        double[] inputs = new double[lstAllTrainingData.size()];
+                        for (int inputDatasetIndex = 0; inputDatasetIndex < lstAllTrainingData.size(); inputDatasetIndex++) {
+                            inputs[inputDatasetIndex] = lstAllTrainingData.get(inputDatasetIndex).get(row).get(col);
+                        }
+                        neuralNetwork.setInput(inputs);
+                        neuralNetwork.calculate();
+                        double[] outputs = neuralNetwork.getOutput();
+                        lstResultRow.add(outputs[0]);
+                    }
+                    lstAllResults.add(lstResultRow);
+                }
+                // Write the calculated file
+                String filename = file.getFileName().toString();
+                Path inferredDistribution = file.getParent().resolve(filename.replace(".nnet", "_inferred_destribution.idi")).toAbsolutePath();
+                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Writing File: {0}", inferredDistribution.toString());
+                if (chkReplaceFiles.isSelected() || !Files.exists(file)) {
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(inferredDistribution.toFile()))) {
+                        for (List<Double> lstResultRow : lstAllResults) {
+                            for (double value : lstResultRow) {
+                                writer.write(Double.toString(Math.round(value * 1000.0) / 1000.0));
+                                writer.write(",");
+                            }
+                            writer.write(System.lineSeparator());
+                        }
+                        // Flushing and closing just to be paranoid (should be handled by the try-with-resources statement already)
+                        writer.flush();
+                        writer.close();
+                    }
+                    catch (IOException ex) {
+                        Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else {
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+                }
+            }
+            JOptionPane.showMessageDialog(this, "The Inferred Distribution have been calculated..", "FINISHED Calculate Inferred Distribution", 
+                    JOptionPane.INFORMATION_MESSAGE);
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
             Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The Inferred Distribution have NOT been calculated.", "ERROR Calculate Inferred Distribution", 
+                    JOptionPane.ERROR_MESSAGE);
         }
-        for (Path file : lstNeuralNetworkFiles) {
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Infer Distribution for: {0}", file.toString());
-            // Load the neural network
-            NeuralNetwork neuralNetwork = NeuralNetwork.createFromFile(file.toFile());
-            // Calculate the infered distribution for each grid tile
-            List<List<Double>> lstAllResults = new ArrayList<>();
-            for (int row = 0; row < lstAllTrainingData.get(0).size(); row++) {
-                List<Double> lstResultRow = new ArrayList<>();
-                for (int col = 0; col < lstAllTrainingData.get(0).get(0).size(); col++) {
-                    double[] inputs = new double[lstAllTrainingData.size()];
-                    for (int inputDatasetIndex = 0; inputDatasetIndex < lstAllTrainingData.size(); inputDatasetIndex++) {
-                        inputs[inputDatasetIndex] = lstAllTrainingData.get(inputDatasetIndex).get(row).get(col);
-                    }
-                    neuralNetwork.setInput(inputs);
-                    neuralNetwork.calculate();
-                    double[] outputs = neuralNetwork.getOutput();
-                    lstResultRow.add(outputs[0]);
-                }
-                lstAllResults.add(lstResultRow);
-            }
-            // Write the calculated file
-            String filename = file.getFileName().toString();
-            Path inferredDistribution = file.getParent().resolve(filename.replace(".nnet", "_inferred_destribution.idi")).toAbsolutePath();
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(inferredDistribution.toFile()))) {
-                for (List<Double> lstResultRow : lstAllResults) {
-                    for (double value : lstResultRow) {
-                        writer.write(Double.toString(Math.round(value * 1000.0) / 1000.0));
-                        writer.write(",");
-                    }
-                    writer.write(System.lineSeparator());
-                }
-                // Flushing and closing just to be paranoid (should be handled by the try-with-resources statement already)
-                writer.flush();
-                writer.close();
-            }
-            catch (IOException ex) {
-                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        JOptionPane.showMessageDialog(this, "The Inferred Distribution have been calculated.", "Inferred Distributions Completed", JOptionPane.INFORMATION_MESSAGE);
+        getGlassPane().setVisible(false);
+        getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnGenerateDistributionActionPerformed
 
     private void btnTrainNeuralNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainNeuralNetworkActionPerformed
-        List<Path> lstTrainFiles = new ArrayList<>();
+        getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        getGlassPane().setVisible(true);
         try {
+            List<Path> lstTrainFiles = new ArrayList<>();
             Files.walkFileTree(Paths.get(distributionsFolder), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -391,27 +439,59 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
+            for (Path file : lstTrainFiles) {
+                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Begin training for: {0}", file.toString());
+                // Load the trainng set
+                DataSet trainingSet = DataSet.load(file.toAbsolutePath().toString());
+                // Create the new neural network
+                List<Integer> lstLayers = new ArrayList<>(3);
+                if (!txtLayersAndNodes.getText().trim().isEmpty()) {
+                    String[] providedLayers = txtLayersAndNodes.getText().trim().split(" ");
+                    if (providedLayers.length > 0) {
+                        lstLayers.add(trainingSet.getInputSize());
+                        for (String hiddenLayer : providedLayers) {
+                            lstLayers.add(Integer.parseInt(hiddenLayer));
+                        }
+                        lstLayers.add(trainingSet.getOutputSize());
+                    }
+                }
+                if (lstLayers.isEmpty()) {
+                    lstLayers.add(trainingSet.getInputSize());
+                    lstLayers.add((int) (trainingSet.getInputSize() * 0.85));
+                    lstLayers.add((int) (trainingSet.getInputSize() * 0.65));
+                    lstLayers.add((int) (trainingSet.getInputSize() * 0.35));
+                    lstLayers.add((int) (trainingSet.getInputSize() * 0.2));
+                    lstLayers.add(trainingSet.getOutputSize());
+                }
+                MultiLayerPerceptron neuralNetwork = new MultiLayerPerceptron(lstLayers);
+                // Train the neural network
+                BackPropagation learningRules = new BackPropagation();
+                learningRules.setMaxError(0.01);
+                learningRules.setLearningRate(0.2);
+                neuralNetwork.learn(trainingSet, learningRules);
+// TODO: Which of these are useful to show to the user (if any)?
+Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "PreviousEpochError: {0}", learningRules.getPreviousEpochError());
+Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "TotalNetworkError: {0}", learningRules.getTotalNetworkError());
+                // Save the trained neural network
+                String filename = file.getFileName().toString();
+                if (chkReplaceFiles.isSelected() || !Files.exists(file)) {
+                    neuralNetwork.save(file.getParent().resolve(filename.replace("_train.tset", ".nnet")).toAbsolutePath().toString());
+                }
+                else {
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+                }
+                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Finished training for: {0}", file.toString());
+            }
+            JOptionPane.showMessageDialog(this, "The Neural Network training has completed.", "FINISHED Training", 
+                    JOptionPane.INFORMATION_MESSAGE);
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
             Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The Neural Network training has NOT completed.", "ERROR Training", 
+                    JOptionPane.ERROR_MESSAGE);
         }
-        for (Path file : lstTrainFiles) {
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Begin training for: {0}", file.toString());
-            // Load the trainng set
-            DataSet trainingSet = DataSet.load(file.toAbsolutePath().toString());
-            // Create the new neural network
-            MultiLayerPerceptron neuralNetwork = new MultiLayerPerceptron(trainingSet.getInputSize(), 5, 7, 13, 7, 3, trainingSet.getOutputSize());
-            // Train the neural network
-            BackPropagation learningRules = new BackPropagation();
-            learningRules.setMaxError(0.01);
-            learningRules.setLearningRate(0.2);
-            neuralNetwork.learn(trainingSet, learningRules);
-            // Save the trained neural network
-            String filename = file.getFileName().toString();
-            neuralNetwork.save(file.getParent().resolve(filename.replace("_train.tset", ".nnet")).toAbsolutePath().toString());
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Finished training for: {0}", file.toString());
-        }
-        JOptionPane.showMessageDialog(this, "The Neural Network training has completed.", "Training Completed", JOptionPane.INFORMATION_MESSAGE);
+        getGlassPane().setVisible(false);
+        getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnTrainNeuralNetworkActionPerformed
 
     private void btnTrainingInputsBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrainingInputsBrowseActionPerformed
@@ -427,9 +507,11 @@ public class NeuralNetworkProcessorApp extends JFrame {
     }//GEN-LAST:event_btnTrainingInputsBrowseActionPerformed
 
     private void btnGenerateDatasetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateDatasetsActionPerformed
-        // Get all the input files
-        List<Path> lstTrainingFiles = new ArrayList<>();
+        getGlassPane().setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        getGlassPane().setVisible(true);
         try {
+            // Get all the input files
+            List<Path> lstTrainingFiles = new ArrayList<>();
             Files.walkFileTree(Paths.get(trainingInputsFolder), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -439,20 +521,15 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
-        }
-        catch (IOException ex) {
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // Load the values into memory
+            // Load the values into memory
 // TODO: A bit of a cumbersome data structure, but it works... Maybe use Double[][][] instead, but then I need to know the sizes before hand...
-        List<List<List<Double>>> lstAllTrainingData = new ArrayList<>(lstTrainingFiles.size());
-        for (Path file : lstTrainingFiles) {
-            lstAllTrainingData.add(readDatasetFile(file));
-        }
-        // Get all the distributions to be calculated
-        List<Path> lstAbsenceFiles = new ArrayList<>();
-        List<Path> lstPresenceFiles = new ArrayList<>();
-        try {
+            List<List<List<Double>>> lstAllTrainingData = new ArrayList<>(lstTrainingFiles.size());
+            for (Path file : lstTrainingFiles) {
+                lstAllTrainingData.add(readDatasetFile(file));
+            }
+            // Get all the distributions to be calculated
+            List<Path> lstAbsenceFiles = new ArrayList<>();
+            List<Path> lstPresenceFiles = new ArrayList<>();
             Files.walkFileTree(Paths.get(distributionsFolder), new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -466,72 +543,89 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     return FileVisitResult.CONTINUE;
                 }
             });
-        }
-        catch (IOException ex) {
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // Create the training dataset and the full distribution testing dataset
-        int numberOfInputs = lstTrainingFiles.size();
-        for (int fileIndex = 0; fileIndex < lstPresenceFiles.size(); fileIndex++) {
-            Path file = lstPresenceFiles.get(fileIndex);
-            String filename = file.getFileName().toString();
-            DataSet trainingSet = new DataSet(numberOfInputs, 1);
-            DataSet testingSet = new DataSet(numberOfInputs, 1);
-            // Populate the datasets
-            List<List<Double>> lstAbsenceData = readDatasetFile(lstAbsenceFiles.get(fileIndex));
-            List<List<Double>> lstPresenceData = readDatasetFile(file);
-            for (int row = 0; row < lstPresenceData.size(); row++) {
-                List<Double> lstAbsenceValues = lstAbsenceData.get(row);
-                List<Double> lstPresenceValues = lstPresenceData.get(row);
-                for (int col = 0; col < lstPresenceValues.size(); col++) {
-                    double absence = lstAbsenceValues.get(col);
-                    double presence = lstPresenceValues.get(col);
-                    double value = -1.0;
-                    // Select values that are good enough to train with
-                    if (absence > 0.5) {
-                        value = 0.0;
-                    }
-                    else
-                    if (presence > 0.25) {
-                        value = presence;
-                    }
-                    if (value >= 0.0) {
-                        ArrayList<Double> inputs = new ArrayList<>(lstAllTrainingData.size());
-                        for (List<List<Double>> lstInputDataset : lstAllTrainingData) {
-                            inputs.add(lstInputDataset.get(row).get(col));
+            // Create the training dataset and the full distribution testing dataset
+            int numberOfInputs = lstTrainingFiles.size();
+            for (int fileIndex = 0; fileIndex < lstPresenceFiles.size(); fileIndex++) {
+                Path file = lstPresenceFiles.get(fileIndex);
+                String filename = file.getFileName().toString();
+                DataSet trainingSet = new DataSet(numberOfInputs, 1);
+                DataSet testingSet = new DataSet(numberOfInputs, 1);
+                // Populate the datasets
+                List<List<Double>> lstAbsenceData = readDatasetFile(lstAbsenceFiles.get(fileIndex));
+                List<List<Double>> lstPresenceData = readDatasetFile(file);
+                for (int row = 0; row < lstPresenceData.size(); row++) {
+                    List<Double> lstAbsenceValues = lstAbsenceData.get(row);
+                    List<Double> lstPresenceValues = lstPresenceData.get(row);
+                    for (int col = 0; col < lstPresenceValues.size(); col++) {
+                        double absence = lstAbsenceValues.get(col);
+                        double presence = lstPresenceValues.get(col);
+                        double value = Double.MIN_VALUE;
+                        // Select values that are good enough to train with
+                        if (chkIncludeAbsence.isSelected() && absence > 0.5) {
+                            value = 0.0;
                         }
-                        ArrayList<Double> outputs = new ArrayList<>(1);
-                        outputs.add(value);
-                        trainingSet.addRow(new DataSetRow(inputs, outputs));
-                    }
-                    // Select values that are good enough to test with
-                    if (absence > 0.2) {
-                        value = 0.0;
-                    }
-                    else
-                    if (presence > 0.0) {
-                        value = presence;
-                    }
-                    if (value >= 0.0) {
-                        ArrayList<Double> inputs = new ArrayList<>(lstAllTrainingData.size());
-                        for (List<List<Double>> lstInputDataset : lstAllTrainingData) {
-                            inputs.add(lstInputDataset.get(row).get(col));
+                        else
+                        if (presence > 0.25) {
+                            value = presence;
                         }
-                        ArrayList<Double> outputs = new ArrayList<>(1);
-                        outputs.add(value);
-                        testingSet.addRow(new DataSetRow(inputs, outputs));
+                        if (value >= 0.0) {
+                            ArrayList<Double> inputs = new ArrayList<>(lstAllTrainingData.size());
+                            for (List<List<Double>> lstInputDataset : lstAllTrainingData) {
+                                inputs.add(lstInputDataset.get(row).get(col));
+                            }
+                            ArrayList<Double> outputs = new ArrayList<>(1);
+                            outputs.add(value);
+                            trainingSet.addRow(new DataSetRow(inputs, outputs));
+                        }
+                        // Select values that are good enough to test with
+                        if (chkIncludeAbsence.isSelected() && absence > 0.15) {
+                            value = 0.0;
+                        }
+                        else
+                        if (presence > 0.0) {
+                            value = presence;
+                        }
+                        if (value >= 0.0) {
+                            ArrayList<Double> inputs = new ArrayList<>(lstAllTrainingData.size());
+                            for (List<List<Double>> lstInputDataset : lstAllTrainingData) {
+                                inputs.add(lstInputDataset.get(row).get(col));
+                            }
+                            ArrayList<Double> outputs = new ArrayList<>(1);
+                            outputs.add(value);
+                            testingSet.addRow(new DataSetRow(inputs, outputs));
+                        }
                     }
                 }
+                // Save the dataset files
+                Path trainingFile = file.getParent().resolve(filename.replace(".idi", "_train.tset")).toAbsolutePath();
+                if (chkReplaceFiles.isSelected() || !Files.exists(trainingFile)) {
+                    trainingSet.save(trainingFile.toString());
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Saving training dataset: {0}", trainingFile.toString());
+                }
+                else {
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+                }
+                Path testingFile = file.getParent().resolve(filename.replace(".idi", "_test.tset")).toAbsolutePath();
+                if (chkReplaceFiles.isSelected() || !Files.exists(testingFile)) {
+                    testingSet.save(testingFile.toString());
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Saving testing dataset: {0}", testingFile.toString());
+                }
+                else {
+                    Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "... The file will be skipped (not overwritten).");
+                }
             }
-            // Save the dataset files
-            trainingSet.save(file.getParent().resolve(filename.replace(".idi", "_train.tset")).toAbsolutePath().toString());
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Saving training dataset: {0}", trainingSet.getFilePath());
-            testingSet.save(file.getParent().resolve(filename.replace(".idi", "_test.tset")).toAbsolutePath().toString());
-            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Saving testing dataset: {0}", testingSet.getFilePath());
+            JOptionPane.showMessageDialog(this, "The training and testing datasets have been generated.", "FINISHED Generating Datasets", 
+                    JOptionPane.INFORMATION_MESSAGE);
         }
+        catch (Exception ex) {
+            Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The training and testing datasets have NOT been generated.", "ERROR Generating Datasets", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        getGlassPane().setVisible(false);
+        getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnGenerateDatasetsActionPerformed
 
-// TODO: Each of the sub-projects have similar methods, like this one. Make a new project for shared functionality which is then re-used by each.
     private List<List<Double>> readDatasetFile(Path file) throws NumberFormatException {
         List<List<Double>> lstAllRowValues = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file.toFile()))) {
@@ -557,21 +651,25 @@ public class NeuralNetworkProcessorApp extends JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JButton btnDistributionsBrowse;
-    javax.swing.JButton btnGenerateDatasets;
-    javax.swing.JButton btnGenerateDistribution;
-    javax.swing.JButton btnTrainNeuralNetwork;
-    javax.swing.JButton btnTrainingInputsBrowse;
-    javax.swing.JCheckBox chkReplaceFiles;
-    javax.swing.JLabel jLabel1;
-    javax.swing.JLabel jLabel13;
-    javax.swing.JLabel jLabel19;
-    javax.swing.JLabel jLabel7;
-    javax.swing.JLabel jLabel9;
-    javax.swing.JPanel jPanel2;
-    javax.swing.JPanel jPanel4;
-    javax.swing.JPanel jPanel8;
-    javax.swing.JTextField txtDistributionsFolderPath;
-    javax.swing.JTextField txtTrainingInputsFolderPath;
+    private javax.swing.JButton btnDistributionsBrowse;
+    private javax.swing.JButton btnGenerateDatasets;
+    private javax.swing.JButton btnGenerateDistribution;
+    private javax.swing.JButton btnTrainNeuralNetwork;
+    private javax.swing.JButton btnTrainingInputsBrowse;
+    private javax.swing.JCheckBox chkIncludeAbsence;
+    private javax.swing.JCheckBox chkReplaceFiles;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JTextField txtDistributionsFolderPath;
+    private javax.swing.JTextField txtLayersAndNodes;
+    private javax.swing.JTextField txtTrainingInputsFolderPath;
     // End of variables declaration//GEN-END:variables
 }
