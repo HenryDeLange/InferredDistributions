@@ -128,24 +128,28 @@ public class DataGeneratorAppLauncher extends JFrame {
 
     private void btnGenerateINatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateINatActionPerformed
         DataGeneratorAppForINat frame = new DataGeneratorAppForINat();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(this);
         frame.setVisible(true);
     }//GEN-LAST:event_btnGenerateINatActionPerformed
 
     private void btnGenerateRasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateRasterActionPerformed
         DataGeneratorAppForRaster frame = new DataGeneratorAppForRaster();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(this);
         frame.setVisible(true);
     }//GEN-LAST:event_btnGenerateRasterActionPerformed
 
     private void btnViewerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewerActionPerformed
         DataViewerApp frame = new DataViewerApp();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(this);
         frame.setVisible(true);
     }//GEN-LAST:event_btnViewerActionPerformed
 
     private void btnNeuralNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNeuralNetworkActionPerformed
         NeuralNetworkProcessorApp frame = new NeuralNetworkProcessorApp();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(this);
         frame.setVisible(true);
     }//GEN-LAST:event_btnNeuralNetworkActionPerformed

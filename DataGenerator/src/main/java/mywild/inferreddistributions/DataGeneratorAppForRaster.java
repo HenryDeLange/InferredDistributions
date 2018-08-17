@@ -85,7 +85,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         jLabel13 = new javax.swing.JLabel();
         btnGenerateLimits = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dataset Generator for Raster Data");
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+15));

@@ -559,7 +559,7 @@ Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Tot
                     for (int col = 0; col < lstPresenceValues.size(); col++) {
                         double absence = lstAbsenceValues.get(col);
                         double presence = lstPresenceValues.get(col);
-                        double value = Double.MIN_VALUE;
+                        double value = -5;
                         // Select values that are good enough to train with
                         if (chkIncludeAbsence.isSelected() && absence > 0.5) {
                             value = 0.0;

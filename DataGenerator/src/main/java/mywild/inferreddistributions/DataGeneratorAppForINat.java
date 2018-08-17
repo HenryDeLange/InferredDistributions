@@ -104,7 +104,7 @@ public class DataGeneratorAppForINat extends JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dataset Generator for iNaturalist");
         setMinimumSize(new java.awt.Dimension(880, 860));
         setPreferredSize(new java.awt.Dimension(880, 860));
