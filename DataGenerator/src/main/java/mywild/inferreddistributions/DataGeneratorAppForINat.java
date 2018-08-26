@@ -91,6 +91,7 @@ public class DataGeneratorAppForINat extends JFrame {
         jLabel13 = new javax.swing.JLabel();
         chkCSVHasHeader = new javax.swing.JCheckBox();
         chkUseINatFields = new javax.swing.JCheckBox();
+        chkAddOceanAbsence = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txtBaselineFilePath = new javax.swing.JTextField();
@@ -206,6 +207,7 @@ public class DataGeneratorAppForINat extends JFrame {
         btnDataFolderBrowse.setFont(btnDataFolderBrowse.getFont().deriveFont(btnDataFolderBrowse.getFont().getSize()+2f));
         btnDataFolderBrowse.setText("Browse");
         btnDataFolderBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDataFolderBrowse.setFocusPainted(false);
         btnDataFolderBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDataFolderBrowseActionPerformed(evt);
@@ -285,6 +287,7 @@ public class DataGeneratorAppForINat extends JFrame {
         chkReplaceFiles.setSelected(true);
         chkReplaceFiles.setText("Replace exisitng files");
         chkReplaceFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkReplaceFiles.setFocusPainted(false);
 
         jLabel11.setFont(jLabel11.getFont().deriveFont(jLabel11.getFont().getSize()+1f));
         jLabel11.setText("Latitude Column:");
@@ -307,6 +310,7 @@ public class DataGeneratorAppForINat extends JFrame {
         chkCSVHasHeader.setSelected(true);
         chkCSVHasHeader.setText("CSV has header");
         chkCSVHasHeader.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkCSVHasHeader.setFocusPainted(false);
         chkCSVHasHeader.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkCSVHasHeaderActionPerformed(evt);
@@ -318,6 +322,15 @@ public class DataGeneratorAppForINat extends JFrame {
         chkUseINatFields.setText("Use iNaturalist data quality fields");
         chkUseINatFields.setToolTipText("<html>\nFile must include the header. <br>\nSupported fields: out_of_range, quality_grade, positional_accuracy, captive_cultivated, coordinates_obscured.\n</html>");
         chkUseINatFields.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkUseINatFields.setFocusPainted(false);
+
+        chkAddOceanAbsence.setFont(chkAddOceanAbsence.getFont().deriveFont(chkAddOceanAbsence.getFont().getSize()+1f));
+        chkAddOceanAbsence.setSelected(true);
+        chkAddOceanAbsence.setText("Add absence records in the ocean");
+        chkAddOceanAbsence.setToolTipText("");
+        chkAddOceanAbsence.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkAddOceanAbsence.setEnabled(false);
+        chkAddOceanAbsence.setFocusPainted(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -344,11 +357,13 @@ public class DataGeneratorAppForINat extends JFrame {
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addComponent(chkReplaceFiles)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(chkCSVHasHeader)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(chkUseINatFields)
-                        .addGap(269, 269, 269))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addComponent(chkAddOceanAbsence)
+                        .addContainerGap(44, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +375,8 @@ public class DataGeneratorAppForINat extends JFrame {
                     .addComponent(chkReplaceFiles)
                     .addComponent(jLabel13)
                     .addComponent(chkCSVHasHeader)
-                    .addComponent(chkUseINatFields))
+                    .addComponent(chkUseINatFields)
+                    .addComponent(chkAddOceanAbsence))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -381,6 +397,7 @@ public class DataGeneratorAppForINat extends JFrame {
         btnBaselineFileBrowse.setFont(btnBaselineFileBrowse.getFont().deriveFont(btnBaselineFileBrowse.getFont().getSize()+2f));
         btnBaselineFileBrowse.setText("Browse");
         btnBaselineFileBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBaselineFileBrowse.setFocusPainted(false);
         btnBaselineFileBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBaselineFileBrowseActionPerformed(evt);
@@ -418,6 +435,7 @@ public class DataGeneratorAppForINat extends JFrame {
         btnGenerateAbsenceDatasets.setFont(btnGenerateAbsenceDatasets.getFont().deriveFont(btnGenerateAbsenceDatasets.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateAbsenceDatasets.getFont().getSize()+13));
         btnGenerateAbsenceDatasets.setText("Generate Absence Datasets");
         btnGenerateAbsenceDatasets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateAbsenceDatasets.setFocusPainted(false);
         btnGenerateAbsenceDatasets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateAbsenceDatasetsActionPerformed(evt);
@@ -464,6 +482,7 @@ public class DataGeneratorAppForINat extends JFrame {
         btnGeneratePresenceDatasets.setFont(btnGeneratePresenceDatasets.getFont().deriveFont(btnGeneratePresenceDatasets.getFont().getStyle() | java.awt.Font.BOLD, btnGeneratePresenceDatasets.getFont().getSize()+13));
         btnGeneratePresenceDatasets.setText("Generate Presence Datasets");
         btnGeneratePresenceDatasets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGeneratePresenceDatasets.setFocusPainted(false);
         btnGeneratePresenceDatasets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGeneratePresenceDatasetsActionPerformed(evt);
@@ -541,7 +560,7 @@ public class DataGeneratorAppForINat extends JFrame {
                 .addComponent(btnGeneratePresenceDatasets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -816,7 +835,11 @@ public class DataGeneratorAppForINat extends JFrame {
         // Read all baseline data
         List<List<Double>> lstBaselineValues = readDatasetFile(Paths.get(baselineFile));
         // Create the absence map
+
 // TODO: It would be nice to also find a way to take the species count of the baseline file into account here...
+
+// TODO: If the option is selected, then also add absence records manually in random spots in the ocean
+
         List<List<Double>> lstAbsenceValues = new ArrayList<>(lstBaselineValues.size());
         for (int r = 0; r < lstBaselineValues.size(); r++) {
             List<Double> lstBaselineRow = lstBaselineValues.get(r);
@@ -977,6 +1000,7 @@ public class DataGeneratorAppForINat extends JFrame {
     private javax.swing.JButton btnDataFolderBrowse;
     private javax.swing.JButton btnGenerateAbsenceDatasets;
     private javax.swing.JButton btnGeneratePresenceDatasets;
+    private javax.swing.JCheckBox chkAddOceanAbsence;
     private javax.swing.JCheckBox chkCSVHasHeader;
     private javax.swing.JCheckBox chkReplaceFiles;
     private javax.swing.JCheckBox chkUseINatFields;

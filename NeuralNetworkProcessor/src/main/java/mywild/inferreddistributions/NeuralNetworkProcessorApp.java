@@ -76,8 +76,10 @@ public class NeuralNetworkProcessorApp extends JFrame {
         jLabel11 = new javax.swing.JLabel();
         txtLayersAndNodes = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        chkReplaceFiles1 = new javax.swing.JCheckBox();
         btnGenerateDatasets = new javax.swing.JButton();
         btnTrainNeuralNetwork = new javax.swing.JButton();
+        btnTestNeuralNetwork = new javax.swing.JButton();
         btnGenerateDistribution = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -86,6 +88,8 @@ public class NeuralNetworkProcessorApp extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Neural Network Processor");
+        setMinimumSize(new java.awt.Dimension(880, 750));
+        setPreferredSize(new java.awt.Dimension(880, 750));
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+15));
         jLabel1.setText("Neural Network Processor");
@@ -103,6 +107,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         btnDistributionsBrowse.setFont(btnDistributionsBrowse.getFont().deriveFont(btnDistributionsBrowse.getFont().getSize()+2f));
         btnDistributionsBrowse.setText("Browse");
         btnDistributionsBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDistributionsBrowse.setFocusPainted(false);
         btnDistributionsBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDistributionsBrowseActionPerformed(evt);
@@ -144,6 +149,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         chkReplaceFiles.setSelected(true);
         chkReplaceFiles.setText("Replace exisitng files");
         chkReplaceFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkReplaceFiles.setFocusPainted(false);
 
         jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getStyle() | java.awt.Font.BOLD, jLabel13.getFont().getSize()+1));
         jLabel13.setText("Settings:");
@@ -152,6 +158,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         chkIncludeAbsence.setSelected(true);
         chkIncludeAbsence.setText("Include absence records for the training and testing datasets");
         chkIncludeAbsence.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkIncludeAbsence.setFocusPainted(false);
 
         jLabel11.setFont(jLabel11.getFont().deriveFont(jLabel11.getFont().getSize()+1f));
         jLabel11.setText("Nodes per hidden layers:");
@@ -164,6 +171,13 @@ public class NeuralNetworkProcessorApp extends JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Space seperated. Leave empty to determine automatically.");
 
+        chkReplaceFiles1.setFont(chkReplaceFiles1.getFont().deriveFont(chkReplaceFiles1.getFont().getSize()+1f));
+        chkReplaceFiles1.setSelected(true);
+        chkReplaceFiles1.setText("Only use datasets from layers file");
+        chkReplaceFiles1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkReplaceFiles1.setEnabled(false);
+        chkReplaceFiles1.setFocusPainted(false);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -172,21 +186,23 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtLayersAndNodes)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
                                 .addComponent(chkReplaceFiles)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkIncludeAbsence)))
-                        .addGap(0, 255, Short.MAX_VALUE)))
+                                .addGap(20, 20, 20)
+                                .addComponent(chkIncludeAbsence)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addComponent(chkReplaceFiles1)))
+                        .addGap(0, 31, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtLayersAndNodes))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -198,7 +214,8 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkReplaceFiles)
                     .addComponent(jLabel13)
-                    .addComponent(chkIncludeAbsence))
+                    .addComponent(chkIncludeAbsence)
+                    .addComponent(chkReplaceFiles1))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -211,6 +228,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         btnGenerateDatasets.setFont(btnGenerateDatasets.getFont().deriveFont(btnGenerateDatasets.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateDatasets.getFont().getSize()+13));
         btnGenerateDatasets.setText("Generate Training and Testing Datasets");
         btnGenerateDatasets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateDatasets.setFocusPainted(false);
         btnGenerateDatasets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateDatasetsActionPerformed(evt);
@@ -220,15 +238,27 @@ public class NeuralNetworkProcessorApp extends JFrame {
         btnTrainNeuralNetwork.setFont(btnTrainNeuralNetwork.getFont().deriveFont(btnTrainNeuralNetwork.getFont().getStyle() | java.awt.Font.BOLD, btnTrainNeuralNetwork.getFont().getSize()+13));
         btnTrainNeuralNetwork.setText("Create and Train Neural Network");
         btnTrainNeuralNetwork.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTrainNeuralNetwork.setFocusPainted(false);
         btnTrainNeuralNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTrainNeuralNetworkActionPerformed(evt);
             }
         });
 
+        btnTestNeuralNetwork.setFont(btnTestNeuralNetwork.getFont().deriveFont(btnTestNeuralNetwork.getFont().getStyle() | java.awt.Font.BOLD, btnTestNeuralNetwork.getFont().getSize()+13));
+        btnTestNeuralNetwork.setText("Test Neural Network");
+        btnTestNeuralNetwork.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTestNeuralNetwork.setFocusPainted(false);
+        btnTestNeuralNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTestNeuralNetworkActionPerformed(evt);
+            }
+        });
+
         btnGenerateDistribution.setFont(btnGenerateDistribution.getFont().deriveFont(btnGenerateDistribution.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateDistribution.getFont().getSize()+13));
         btnGenerateDistribution.setText("Generate Inferred Distribution");
         btnGenerateDistribution.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateDistribution.setFocusPainted(false);
         btnGenerateDistribution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateDistributionActionPerformed(evt);
@@ -248,6 +278,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
         btnTrainingInputsBrowse.setFont(btnTrainingInputsBrowse.getFont().deriveFont(btnTrainingInputsBrowse.getFont().getSize()+2f));
         btnTrainingInputsBrowse.setText("Browse");
         btnTrainingInputsBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTrainingInputsBrowse.setFocusPainted(false);
         btnTrainingInputsBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTrainingInputsBrowseActionPerformed(evt);
@@ -298,7 +329,8 @@ public class NeuralNetworkProcessorApp extends JFrame {
                     .addComponent(btnGenerateDistribution, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTrainNeuralNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGenerateDatasets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGenerateDatasets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTestNeuralNetwork, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -316,6 +348,8 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 .addComponent(btnGenerateDatasets, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(btnTrainNeuralNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(btnTestNeuralNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(btnGenerateDistribution, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -434,6 +468,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     if (file.getFileName().toString().toLowerCase().endsWith("_train.tset")) {
+// TODO: Be aware of the option to only train from a specified list of layers (.lrs file)
                         lstTrainFiles.add(file);
                     }
                     return FileVisitResult.CONTINUE;
@@ -469,9 +504,7 @@ public class NeuralNetworkProcessorApp extends JFrame {
                 learningRules.setMaxError(0.01);
                 learningRules.setLearningRate(0.2);
                 neuralNetwork.learn(trainingSet, learningRules);
-// TODO: Which of these are useful to show to the user (if any)?
-Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "PreviousEpochError: {0}", learningRules.getPreviousEpochError());
-Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "TotalNetworkError: {0}", learningRules.getTotalNetworkError());
+                Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "TotalNetworkError: {0}", learningRules.getTotalNetworkError());
                 // Save the trained neural network
                 String filename = file.getFileName().toString();
                 if (chkReplaceFiles.isSelected() || !Files.exists(file)) {
@@ -516,6 +549,7 @@ Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Tot
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     if (file.getFileName().toString().toLowerCase().endsWith(".idi")) {
+// TODO: Be aware of the option to only train from a specified list of layers (.lrs file - write all raster datasets to the file, then read it back to see what to use)
                         lstTrainingFiles.add(file);
                     }
                     return FileVisitResult.CONTINUE;
@@ -626,6 +660,10 @@ Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Tot
         getGlassPane().setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnGenerateDatasetsActionPerformed
 
+    private void btnTestNeuralNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestNeuralNetworkActionPerformed
+// TODO: Use the test dataset to see how many good or bad matches there are. Show popup with results: "Correct = X, Wrong = Y, Total Error: Z"
+    }//GEN-LAST:event_btnTestNeuralNetworkActionPerformed
+
     private List<List<Double>> readDatasetFile(Path file) throws NumberFormatException {
         List<List<Double>> lstAllRowValues = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file.toFile()))) {
@@ -654,10 +692,12 @@ Logger.getLogger(NeuralNetworkProcessorApp.class.getName()).log(Level.INFO, "Tot
     private javax.swing.JButton btnDistributionsBrowse;
     private javax.swing.JButton btnGenerateDatasets;
     private javax.swing.JButton btnGenerateDistribution;
+    private javax.swing.JButton btnTestNeuralNetwork;
     private javax.swing.JButton btnTrainNeuralNetwork;
     private javax.swing.JButton btnTrainingInputsBrowse;
     private javax.swing.JCheckBox chkIncludeAbsence;
     private javax.swing.JCheckBox chkReplaceFiles;
+    private javax.swing.JCheckBox chkReplaceFiles1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

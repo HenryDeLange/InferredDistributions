@@ -57,6 +57,7 @@ public class DataGeneratorAppLauncher extends JFrame {
         btnViewer.setFont(btnViewer.getFont().deriveFont(btnViewer.getFont().getStyle() | java.awt.Font.BOLD, btnViewer.getFont().getSize()+13));
         btnViewer.setText("Data Viewer");
         btnViewer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewer.setFocusPainted(false);
         btnViewer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewerActionPerformed(evt);
@@ -66,6 +67,7 @@ public class DataGeneratorAppLauncher extends JFrame {
         btnGenerateRaster.setFont(btnGenerateRaster.getFont().deriveFont(btnGenerateRaster.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateRaster.getFont().getSize()+13));
         btnGenerateRaster.setText("Generate Raster Datasets");
         btnGenerateRaster.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateRaster.setFocusPainted(false);
         btnGenerateRaster.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateRasterActionPerformed(evt);
@@ -75,6 +77,7 @@ public class DataGeneratorAppLauncher extends JFrame {
         btnGenerateINat.setFont(btnGenerateINat.getFont().deriveFont(btnGenerateINat.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateINat.getFont().getSize()+13));
         btnGenerateINat.setText("Generate iNaturalist Datasets");
         btnGenerateINat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateINat.setFocusPainted(false);
         btnGenerateINat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateINatActionPerformed(evt);
@@ -84,6 +87,7 @@ public class DataGeneratorAppLauncher extends JFrame {
         btnNeuralNetwork.setFont(btnNeuralNetwork.getFont().deriveFont(btnNeuralNetwork.getFont().getStyle() | java.awt.Font.BOLD, btnNeuralNetwork.getFont().getSize()+13));
         btnNeuralNetwork.setText("Neural Network Processor");
         btnNeuralNetwork.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNeuralNetwork.setFocusPainted(false);
         btnNeuralNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNeuralNetworkActionPerformed(evt);

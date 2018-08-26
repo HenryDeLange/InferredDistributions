@@ -83,6 +83,7 @@ public class DataViewerApp extends JFrame {
         btnDataFolderBrowse.setFont(btnDataFolderBrowse.getFont().deriveFont(btnDataFolderBrowse.getFont().getSize()+2f));
         btnDataFolderBrowse.setText("Browse");
         btnDataFolderBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDataFolderBrowse.setFocusPainted(false);
         btnDataFolderBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDataFolderBrowseActionPerformed(evt);
@@ -123,6 +124,7 @@ public class DataViewerApp extends JFrame {
         btnPreviewData.setFont(btnPreviewData.getFont().deriveFont(btnPreviewData.getFont().getStyle() | java.awt.Font.BOLD, btnPreviewData.getFont().getSize()+15));
         btnPreviewData.setText("Generate Preview");
         btnPreviewData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPreviewData.setFocusPainted(false);
         btnPreviewData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPreviewDataActionPerformed(evt);
@@ -132,6 +134,7 @@ public class DataViewerApp extends JFrame {
         btnSavePreview.setFont(btnSavePreview.getFont().deriveFont(btnSavePreview.getFont().getStyle() | java.awt.Font.BOLD, btnSavePreview.getFont().getSize()+15));
         btnSavePreview.setText("Create Preview Image");
         btnSavePreview.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSavePreview.setFocusPainted(false);
         btnSavePreview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSavePreviewActionPerformed(evt);
@@ -184,7 +187,7 @@ public class DataViewerApp extends JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel8)
                 .addGap(5, 5, 5)
-                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addComponent(pnlView, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
                 .addGap(10, 10, 10)
                 .addComponent(btnPreviewData, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)

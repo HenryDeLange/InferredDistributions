@@ -87,6 +87,8 @@ public class DataGeneratorAppForRaster extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dataset Generator for Raster Data");
+        setMinimumSize(new java.awt.Dimension(880, 585));
+        setPreferredSize(new java.awt.Dimension(880, 590));
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getStyle() | java.awt.Font.BOLD, jLabel1.getFont().getSize()+15));
         jLabel1.setText("Dataset Generator for Raster Data");
@@ -187,6 +189,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         btnDataFolderBrowse.setFont(btnDataFolderBrowse.getFont().deriveFont(btnDataFolderBrowse.getFont().getSize()+2f));
         btnDataFolderBrowse.setText("Browse");
         btnDataFolderBrowse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDataFolderBrowse.setFocusPainted(false);
         btnDataFolderBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDataFolderBrowseActionPerformed(evt);
@@ -224,6 +227,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         btnGenerateInputDatasets.setFont(btnGenerateInputDatasets.getFont().deriveFont(btnGenerateInputDatasets.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateInputDatasets.getFont().getSize()+13));
         btnGenerateInputDatasets.setText("Generate Raster Datasets");
         btnGenerateInputDatasets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateInputDatasets.setFocusPainted(false);
         btnGenerateInputDatasets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateInputDatasetsActionPerformed(evt);
@@ -275,6 +279,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         chkReplaceFiles.setSelected(true);
         chkReplaceFiles.setText("Replace exisitng files");
         chkReplaceFiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chkReplaceFiles.setFocusPainted(false);
 
         jLabel13.setFont(jLabel13.getFont().deriveFont(jLabel13.getFont().getStyle() | java.awt.Font.BOLD, jLabel13.getFont().getSize()+1));
         jLabel13.setText("Settings:");
@@ -289,9 +294,9 @@ public class DataGeneratorAppForRaster extends JFrame {
                     .addComponent(jLabel9)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
+                        .addGap(20, 20, 20)
                         .addComponent(chkReplaceFiles)))
-                .addGap(0, 644, Short.MAX_VALUE))
+                .addGap(0, 643, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,6 +313,7 @@ public class DataGeneratorAppForRaster extends JFrame {
         btnGenerateLimits.setFont(btnGenerateLimits.getFont().deriveFont(btnGenerateLimits.getFont().getStyle() | java.awt.Font.BOLD, btnGenerateLimits.getFont().getSize()+13));
         btnGenerateLimits.setText("Calculate Limits");
         btnGenerateLimits.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerateLimits.setFocusPainted(false);
         btnGenerateLimits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerateLimitsActionPerformed(evt);
